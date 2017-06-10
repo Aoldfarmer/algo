@@ -1,5 +1,9 @@
 package chapter1.test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import chapter1.entity.Circle;
 import chapter1.entity.Rectangle;
 import chapter1.entity.Shape;
@@ -13,7 +17,7 @@ import chapter1.entity.Square;
  */
 public class FindMax {
 
-    public static Comparable findMax(Comparable [] arr) {
+    public static <T extends Comparable<? super T>> T findMax(T [] arr) {
         int maxIndex = 0;
 
         for (int i = 0; i < arr.length; i++) {
@@ -21,16 +25,39 @@ public class FindMax {
                 maxIndex = i;
             }
         }
-
         return arr[maxIndex];
+    }
+
+    public static double totalArea(Shape[] arr) {
+        double total = 0;
+        for (Shape s : arr) {
+            if (s != null)
+                total += s.computeArea();
+        }
+        return total;
+    }
+
+
+    public static double totalArea(Collection<? extends Shape> arr) {
+        double total = 0;
+        for (Shape s : arr) {
+            if (s != null)
+                total += s.computeArea();
+        }
+        return total;
     }
 
     public static void main(String[] args) {
         Shape[] sh1 = {new Circle(4.0), new Square(3.0), new Rectangle(3.0, 2.0)};
         String[] sh2 = {"Joe", "Bob", "Bill", "Zeke"};
-
+        List<Shape> shapes = new ArrayList<>();
+        shapes.add(new Square(3.0));
+        shapes.add(new Circle(4.0));
         System.out.println(findMax(sh1));
         System.out.println(findMax(sh2));
+        System.out.println(totalArea(sh1));
+        System.out.println(totalArea(shapes));
+
 
     }
 }

@@ -5,15 +5,15 @@ package chapter1.entity;
  * @version 1.0
  * @since 2017-06-10 1:41 PM
  */
-public class MemoryCell {
+public class MemoryCell<T> {
 
-    private Object storedValue;
+    private T storedValue;
 
-    public Object read() {
+    public T read() {
         return storedValue;
     }
 
-    public void write(Object x) {
+    public void write(T x) {
         storedValue = x;
     }
 }
