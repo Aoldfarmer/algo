@@ -1,4 +1,6 @@
-package chapter1;
+package chapter1.test;
+
+import chapter1.entity.MemoryCell;
 
 /**
  * @author yunqiangdi
@@ -12,5 +14,12 @@ public class TestMemoryCell {
         m.write("37");
         String val = (String) m.read();
         System.out.println("Val is : " + val);
+
+
+        MemoryCell m2 = new MemoryCell();
+        m2.write(2);
+        int val2 = (int) m2.read();
+        System.out.println("Val2 is : " + val2);
+
     }
 }

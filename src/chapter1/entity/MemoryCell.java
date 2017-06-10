@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.entity;
 
 /**
  * @author yunqiangdi
