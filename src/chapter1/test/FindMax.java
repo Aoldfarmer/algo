@@ -2,6 +2,7 @@ package chapter1.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 import chapter1.entity.Circle;
@@ -22,6 +23,24 @@ public class FindMax {
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].compareTo(arr[maxIndex]) > 0) {
+                maxIndex = i;
+            }
+        }
+        return arr[maxIndex];
+    }
+
+    static class CaseCompare implements Comparator<String> {
+        @Override
+        public int compare(String o1, String o2) {
+            return o1.compareToIgnoreCase(o2);
+        }
+    }
+
+    public static <T> T findMax(T[] arr, Comparator<? super T> cmp) {
+        int maxIndex = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (cmp.compare(arr[i], arr[maxIndex]) > 0) {
                 maxIndex = i;
             }
         }
@@ -49,7 +68,7 @@ public class FindMax {
 
     public static void main(String[] args) {
         Shape[] sh1 = {new Circle(4.0), new Square(3.0), new Rectangle(3.0, 2.0)};
-        String[] sh2 = {"Joe", "Bob", "Bill", "Zeke"};
+        String[] sh2 = {"joe", "bob", "Bill", "Zksda"};
         List<Shape> shapes = new ArrayList<>();
         shapes.add(new Square(3.0));
         shapes.add(new Circle(4.0));
@@ -57,7 +76,6 @@ public class FindMax {
         System.out.println(findMax(sh2));
         System.out.println(totalArea(sh1));
         System.out.println(totalArea(shapes));
-
-
+        System.out.println(findMax(sh2, new CaseCompare()));
     }
 }
