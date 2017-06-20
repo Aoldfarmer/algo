@@ -8,7 +8,7 @@ import java.util.Random;
  * @version 1.0
  * @since 2017-06-12 12:02 PM
  */
-public class Execsise01 {
+public class Execise01 {
 
     private static final Random RANDOM = new Random(47);
 

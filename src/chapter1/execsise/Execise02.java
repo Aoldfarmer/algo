@@ -12,7 +12,7 @@ import chapter1.entity.WordIndex;
  * @version 1.0
  * @since 2017-06-12 6:01 PM
  */
-public class Execsice02 {
+public class Execise02 {
 
     private static final Random RANDOM = new Random(47);
 
