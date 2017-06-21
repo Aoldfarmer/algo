@@ -36,6 +36,6 @@ public class Execise06 {
 
 
     public static void main(String[] args) {
-        permute("abcd");
+        permute("abc");
     }
 }
